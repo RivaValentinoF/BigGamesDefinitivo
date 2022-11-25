@@ -1,0 +1,19 @@
+npm i -g @angular/cli
+
+Crea il progetto 
+ng new BigGames
+
+directory del progetto 
+Cd BigGames
+
+Crea un componente
+
+ng generate component
+
+apre il termianl 
+control shift o 
+
+
+bash 
+ ps -a processi attivi 
+ sudo kill -9 nemero processo = uccide il processo 

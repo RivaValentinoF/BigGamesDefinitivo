@@ -1,0 +1,5 @@
+installazioni 
+
+Pip install Flask
+pip install pandas
+pip install pymssql
