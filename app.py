@@ -14,6 +14,11 @@ conn = sql.connect(server='213.140.22.237\SQLEXPRESS',
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def home():
+
+    #QUERYd = make_summary()
+    return jsonify({'dato1': 'prova'})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)
