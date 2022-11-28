@@ -7,12 +7,9 @@ from os import getenv
 from dotenv import load_dotenv
 load_dotenv()
 
-db_server = getenv("DB_SERVER")
-db_user = getenv("DB_USER")
-db_password = getenv("DB_PASSWORD")
-db_name = getenv("DB_NAME")
 
-conn = sql.connect(db_server, db_user, db_password, db_name)
+conn = sql.connect(server='213.140.22.237\SQLEXPRESS',
+                           user='riva.valentino', password='xxx123##', database='riva.valentino')
 
 app = Flask(__name__)
 CORS(app)

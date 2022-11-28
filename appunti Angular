@@ -4,7 +4,7 @@ Crea il progetto
 ng new BigGames
 
 directory del progetto 
-Cd BigGames
+cd BigGames
 
 Crea un componente
 

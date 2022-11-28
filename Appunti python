@@ -1,5 +1,7 @@
 installazioni 
 
 Pip install Flask
+ pip install -U flask-cors
+ pip install python-dotenv
 pip install pandas
 pip install pymssql
