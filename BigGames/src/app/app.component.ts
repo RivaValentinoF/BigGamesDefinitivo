@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +7,31 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BigGames';
-  obs! : Observable<any>;
-  datiDb!:any;
-  constructor(private http : HttpClient)
-  {
-    this.obs  = this.http.get("https://3000-nabb0-biggamesdefiniti-20skp210dz8.ws-eu77.gitpod.io/")
-    this.obs.subscribe(this.getData)
+  staffs!: any;
+  loading!: Boolean;
+  url: string = "https://3000-nabb0-biggamesdefiniti-uzpv5rf531n.ws-eu77.gitpod.io/pandas/staff";
+
+  constructor(public http: HttpClient) {
+    this.get(this.url);
   }
 
-   getData = (data :any)=>
-   {
-      console.log (data);
-      this.datiDb = data;
-   } 
+  get(url: string): void {
+    this.loading = true;
+    this.http.get(url).subscribe(data => {
+      this.staffs = data;
+      this.loading = false;
+    });
+  }
+
+  // previousSearch: string = '';
+  // onKey(value: string) {
+  //   if (value != this.previousSearch) {
+  //     this.get(this.url + "?store_name=" + value);
+  //     this.previousSearch = value;
+  //   }
+  // }
+
+  onKey(value: string) {
+    this.get(this.url + "?store_name=" + value);
+  }
 }
