@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   staffs!: any;
   loading!: Boolean;
-  url: string = "https://3000-nabb0-biggamesdefiniti-uzpv5rf531n.ws-eu77.gitpod.io/pandas/staff";
+  url: string = "https://3000-nabb0-biggamesdefiniti-vj729tfxb7y.ws-eu77.gitpod.io/pandas/staff";
 
   constructor(public http: HttpClient) {
     this.get(this.url);

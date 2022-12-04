@@ -10,27 +10,31 @@
 </head>
 <body>
 
-<div class="container-fluid">
+  <div class="container-fluid">
     <input #box (keydown)="onKey(box.value)" class="form-control mt-3 mb-3">
     <p *ngIf="loading">LOADING...</p>
   
     <table *ngIf="!loading && staffs.length > 1" class="table table-striped">
       <thead>
-        <th>id_game</th>
-        <th>nome</th>
-        <th>studio</th>
-        <th>prezzo</th>
-        <th>anno_uscita</th>
-        
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Active</th>
+        <th>Store ID</th>
+        <th>Manager ID</th>
       </thead>
       <tbody>
         <tr *ngFor="let s of staffs">
-          <td>{{ s.id_game }}</td>
-          <td>{{ s.nome }}</td>
-          <td>{{ s.studio }}</td>
-          <td>{{ s.prezzo}}</td>
-          <td>{{ s.anno_uscita }}</td>
-         
+          <td>{{ s.staff_id }}</td>
+          <td>{{ s.first_name }}</td>
+          <td>{{ s.last_name }}</td>
+          <td>{{ s.email }}</td>
+          <td>{{ s.phone }}</td>
+          <td>{{ s.active }}</td>
+          <td>{{ s.store_id }}</td>
+          <td>{{ s.manager_id }}</td>
         </tr>
       </tbody>
     </table>
