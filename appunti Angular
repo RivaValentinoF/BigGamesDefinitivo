@@ -1,4 +1,5 @@
 npm i -g @angular/cli
+ng add @ng-bootstrap/ng-bootstrap
 
 Crea il progetto 
 ng new BigGames

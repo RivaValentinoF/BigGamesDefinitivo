@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
 </head>
-<body>
 
-  <div class="container-fluid">
-    <input #box placeholder="Inserisci la via del Shop" (keydown)="onKey(box.value)" class="form-control mt-3 mb-3" >
+<body class="bg-dark " >
+  
+  <div class="container-fluid" >
+    <input #box  placeholder="Inserisci la via del Shop" (keydown)="onKey(box.value)" class="form-control mt-3 mb-3" >
     <p *ngIf="loading">LOADING...</p>
   
-    <table *ngIf="!loading && Shops.length >= 1" class="table table-striped">
-      <!--<table *ngIf="!loading && staffs.length > 1" class="table table-striped">!-->
-        <thead>
-          <th>id_shop</th>
+    <table *ngIf="!loading && Shops.length >= 1" class="table table-dark" >
+     
+        <thead class="text-success">
+          <th >id_shop</th>
           <th>telefono_shops</th>
-          <th>indirizzo_shops</th>
-          <th>citta</th>
+          <th>indirizzo</th>
+          <th>città</th>
           
           
         </thead>
-        <tbody>
+        <tbody class="text-success">
           <tr *ngFor="let s of Shops">
             <td>{{ s.id_shop }}</td>
             <td>{{ s.telefono_shops }}</td>
@@ -35,8 +35,8 @@
           </tr>
       </tbody>
     </table>
-    <div class="alert alert-danger" *ngIf="Shops.length < 1">Error, no staff found in this store</div>
+    <div class="alert alert-danger" *ngIf="Shops.length < 1">Errore negozio non trovato</div>
   </div>
-    
+
 </body>
 </html>
