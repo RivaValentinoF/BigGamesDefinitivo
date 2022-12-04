@@ -17,16 +17,16 @@
     <table *ngIf="!loading && Shops.length >= 1" class="table table-dark" >
      
         <thead class="text-success">
-          <th >id_shop</th>
-          <th>telefono_shops</th>
-          <th>indirizzo</th>
-          <th>città</th>
+          
+          <th>Telefono</th>
+          <th>Indirizzo</th>
+          <th>Città</th>
           
           
         </thead>
         <tbody class="text-success">
           <tr *ngFor="let s of Shops">
-            <td>{{ s.id_shop }}</td>
+           
             <td>{{ s.telefono_shops }}</td>
             <td>{{ s.indirizzo_shops }}</td>
             <td>{{ s.citta}}</td>
