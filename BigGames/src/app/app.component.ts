@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  staffs!: any;
+  Shops!: any;
   loading!: Boolean;
   url: string = "https://3000-nabb0-biggamesdefiniti-vj729tfxb7y.ws-eu77.gitpod.io/pandas/staff";
 
@@ -18,7 +18,8 @@ export class AppComponent {
   get(url: string): void {
     this.loading = true;
     this.http.get(url).subscribe(data => {
-      this.staffs = data;
+      this.Shops = data;
+      console.log(data)
       this.loading = false;
     });
   }

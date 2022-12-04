@@ -17,7 +17,8 @@ CORS(app)
 @app.route('/pandas/staff')
 def getstaff_pandas():
     data = request.args.get("store_name")
-    q = f'SELECT * FROM Games '#Where Games.name 'LIKE%{data}' 
+    #q = f'SELECT * FROM shops' 
+    q = f'SELECT * FROM shops' + (' WHERE indirizzo_shops like %(data)s' if data != None and data != '' else "")
     #q = 'SELECT * FROM sales.staffs ' + ('WHERE store_id IN (SELECT store_id FROM sales.stores WHERE store_name LIKE %(data)s)' if data != None and data != '' else "")
     df = pd.read_sql(q, conn, params={"data": f'%{data}%'})
 

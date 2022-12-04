@@ -11,31 +11,31 @@
 <body>
 
   <div class="container-fluid">
-    <input #box (keydown)="onKey(box.value)" class="form-control mt-3 mb-3">
+    <input #box placeholder="Inserisci la via del Shop" (keydown)="onKey(box.value)" class="form-control mt-3 mb-3" >
     <p *ngIf="loading">LOADING...</p>
   
-    <table *ngIf="!loading && Games.length > 1" class="table table-striped">
+    <table *ngIf="!loading && Shops.length >= 1" class="table table-striped">
       <!--<table *ngIf="!loading && staffs.length > 1" class="table table-striped">!-->
         <thead>
-          <th>id_game</th>
-          <th>nome</th>
-          <th>studio</th>
-          <th>prezzo</th>
-          <th>anno_uscita</th>
+          <th>id_shop</th>
+          <th>telefono_shops</th>
+          <th>indirizzo_shops</th>
+          <th>citta</th>
+          
           
         </thead>
         <tbody>
-          <tr *ngFor="let s of Games">
-            <td>{{ s.id_game }}</td>
-            <td>{{ s.nome }}</td>
-            <td>{{ s.studio }}</td>
-            <td>{{ s.prezzo}}</td>
-            <td>{{ s.anno_uscita }}</td>
+          <tr *ngFor="let s of Shops">
+            <td>{{ s.id_shop }}</td>
+            <td>{{ s.telefono_shops }}</td>
+            <td>{{ s.indirizzo_shops }}</td>
+            <td>{{ s.citta}}</td>
+            
            
           </tr>
       </tbody>
     </table>
-    <div class="alert alert-danger" *ngIf="staffs.length < 1">Error, no staff found in this store</div>
+    <div class="alert alert-danger" *ngIf="Shops.length < 1">Error, no staff found in this store</div>
   </div>
     
 </body>
