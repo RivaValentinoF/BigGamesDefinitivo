@@ -26,10 +26,13 @@ def getshop_pandas():
 
     return jsonify(res)
 
-@app.route('/negozio/<valore>')
+@app.route('/negozio/visualizza')
 def getlocation_pandas():
 
-    
+    indirizzo_dato = request.args.get("link_to_giochi")
+    visualizzaloc = f'Select * from GiochiLoc Where indirizzo_shop = (indirizzo_dato) '
+    df1 = pd.read_sql(visualizzaloc,conn)
+
 
     return jsonify(res)
   
