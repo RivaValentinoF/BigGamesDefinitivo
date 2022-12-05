@@ -4,10 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GiochishopComponent } from './giochishop/giochishop.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GiochishopComponent
   ],
   imports: [
     BrowserModule,
