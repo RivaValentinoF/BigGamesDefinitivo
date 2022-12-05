@@ -17,7 +17,7 @@
     <table *ngIf="!loading && Shops.length >= 1" class="table table-dark" >
      
         <thead class="text-success">
-          
+          <th>Id</th>
           <th>Telefono</th>
           <th>Indirizzo</th>
           <th>Città</th>
@@ -27,6 +27,7 @@
         <tbody class="text-success">
           <tr *ngFor="let s of Shops">
            
+            <td>{{s.id_shop}}</td>
             <td>{{ s.telefono_shops }}</td>
             <td>{{ s.indirizzo_shops }}</td>
             <td>{{ s.citta}}</td>

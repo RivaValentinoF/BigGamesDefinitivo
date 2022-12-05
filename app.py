@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/negozio')
-def getstaff_pandas():
+def getshop_pandas():
     data = request.args.get("store_name")
     
     q = f'SELECT * FROM shops' + (' WHERE indirizzo_shops like %(data)s' if data != None and data != '' else "")
@@ -25,6 +25,14 @@ def getstaff_pandas():
     res = list(df.fillna("NaN").to_dict("index").values())    # list(df.to_dict("index").values())
 
     return jsonify(res)
+
+@app.route('/negozio/<valore>')
+def getlocation_pandas():
+
+    
+
+    return jsonify(res)
+  
   
 
 if __name__ == '__main__':
