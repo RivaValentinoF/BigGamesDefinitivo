@@ -21,6 +21,7 @@
           <th>Telefono</th>
           <th>Indirizzo</th>
           <th>Città</th>
+          <th>Selezione</th>
           
           
         </thead>
@@ -31,15 +32,16 @@
             <td>{{ s.telefono_shops }}</td>
             <td>{{ s.indirizzo_shops }}</td>
             <td>{{ s.citta}}</td>
-            
+            <a [routerLink]="['/Giochishop']"><input class="btn btn-success" type="button" value="Input" ></a>
+            <router-outlet></router-outlet>
+           
            
           </tr>
       </tbody>
     </table>
     <div class="alert alert-danger" *ngIf="Shops.length < 1">Errore negozio non trovato</div>
   </div>
-    <a [routerLink]="['/Giochishop']">Visualizza</a>
-    <router-outlet></router-outlet>
+    
 
 </body>
 </html>
