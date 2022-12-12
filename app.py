@@ -26,7 +26,7 @@ def getshop_pandas():
 
     return jsonify(res)
 
-@app.route('/negozio/visualizza')
+@app.route('/giochishop')
 def getlocation_pandas():
 
     indirizzo_dato = request.args.get("link_to_giochi")
