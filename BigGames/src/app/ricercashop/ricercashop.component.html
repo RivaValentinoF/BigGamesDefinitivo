@@ -38,6 +38,8 @@
     </table>
     <div class="alert alert-danger" *ngIf="Shops.length < 1">Errore negozio non trovato</div>
   </div>
+    <a [routerLink]="['/Giochishop']">Visualizza</a>
+    <router-outlet></router-outlet>
 
 </body>
 </html>

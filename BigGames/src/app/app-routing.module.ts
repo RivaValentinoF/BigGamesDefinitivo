@@ -5,6 +5,7 @@ import { RouterModule,Routes } from '@angular/router';
 import { GiochishopComponent } from './giochishop/giochishop.component';
 
 const routes: Routes = [
+  { path: '', component:  RicercashopComponent},
   { path: 'Giochishop', component:  GiochishopComponent }
 ];
 

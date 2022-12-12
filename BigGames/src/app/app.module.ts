@@ -7,12 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GiochishopComponent } from './giochishop/giochishop.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RicercashopComponent } from './ricercashop/ricercashop.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GiochishopComponent,
-    RicercashopComponent
+    RicercashopComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
