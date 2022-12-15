@@ -32,7 +32,7 @@
             <td>{{ s.telefono_shops }}</td>
             <td>{{ s.indirizzo_shops }}</td>
             <td>{{ s.citta}}</td>
-            <a [routerLink]="['/giochishop']"><input class="btn btn-success" type="button" value="Input" ></a>
+            <a routerLink="/giochishop/{{s.id_shop}}"><input class="btn btn-success" type="button" value="Input"  ></a>
             <router-outlet></router-outlet>
            
            
