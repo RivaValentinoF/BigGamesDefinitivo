@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ricercashop.component.css']
 })
 export class RicercashopComponent {
-    Shops!: any;
+    Shops: any = [];
     loading!: Boolean;
     url: string = "https://3000-nabb0-biggamesdefiniti-51xcdsud65b.ws-eu78.gitpod.io/negozio";
 

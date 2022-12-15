@@ -6,7 +6,7 @@ import { GiochishopComponent } from './giochishop/giochishop.component';
 
 const routes: Routes = [
   { path: '', component:  RicercashopComponent},
-  { path: '/Giochishop', component:  GiochishopComponent }
+  { path: 'giochishop', component:  GiochishopComponent }
 ];
 
 @NgModule({
