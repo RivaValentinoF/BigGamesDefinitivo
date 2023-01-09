@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-giochishop',
@@ -7,13 +9,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./giochishop.component.css']
 })
 export class GiochishopComponent implements OnInit  {
-  constructor(private route: ActivatedRoute) {
+  
+  GiochiLoc! : any;
+  url : string = 'https://3000-nabb0-biggamesdefiniti-xpu7jmxvanj.ws-eu81.gitpod.io/giochishop/{{id}}'
+  ob!:Observable<object>;
+
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(id);
+
+
+
+    this.ob = this.http.get(this.url);
+    this.ob.subscribe(this.GiochiLoc)
+
+    
+
+    //Chiamata http a python
+    //http.get("...../")
   }
 
 
