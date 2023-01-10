@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head >
@@ -11,7 +12,7 @@
 <body class="bg-dark " >
   
   
-    <table *ngIf="! GiochiLoc.length >= 1" class="table table-dark" >
+    <table *ngIf="(GiochiLoc?.length >= 1)" class="table table-dark" >
      
         <thead class="text-success">
           <th>Citta</th>

@@ -30,7 +30,7 @@ def getshop_pandas():
 def getlocation_pandas(id_shop):
     
 
-    data = request.args.get("id_")
+   
     visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
     df1 = pd.read_sql(visualizzaloc,conn)
     res = list(df1.fillna("NaN").to_dict("index").values())
