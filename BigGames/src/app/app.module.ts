@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GiochishopComponent } from './giochishop/giochishop.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RicercashopComponent } from './ricercashop/ricercashop.component';
+import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RicercashopComponent } from './ricercashop/ricercashop.component';
     AppComponent,
     GiochishopComponent,
     RicercashopComponent,
+    AggiuntagiochiComponent,
  
   ],
   imports: [
