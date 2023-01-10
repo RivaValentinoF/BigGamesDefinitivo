@@ -28,8 +28,8 @@ def getshop_pandas():
 
 @app.route('/giochishop/<id_shop>')
 def getlocation_pandas(id_shop):
-    
-
+    global id
+    id = id_shop
    
     visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
     df1 = pd.read_sql(visualizzaloc,conn)
