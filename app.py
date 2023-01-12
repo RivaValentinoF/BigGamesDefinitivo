@@ -26,17 +26,17 @@ def getshop_pandas():
 
     return jsonify(res)
 
-@app.route('/giochishop/<id_shop>')
+@app.route('/giochishop/<id_shop>',methods=['GET','POST'])
 def getlocation_pandas(id_shop):
     global id
     id = id_shop
-   
-    visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
-    df1 = pd.read_sql(visualizzaloc,conn)
-    res = list(df1.fillna("NaN").to_dict("index").values())
-
-    return jsonify(res)
-  
+    if request.method == 'GET':
+        visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
+        df1 = pd.read_sql(visualizzaloc,conn)
+        res = list(df1.fillna("NaN").to_dict("index").values())
+        return jsonify(res)
+    elif request.method == 'POST':
+        return  
 @app.route('/aggiuntagiochi')
 def addgames_pandas():
     
