@@ -37,6 +37,13 @@ def getlocation_pandas(id_shop):
 
     return jsonify(res)
   
+@app.route('/aggiuntagiochi')
+def addgames_pandas():
+    
+   
+
+
+    return jsonify(res)
   
 
 if __name__ == '__main__':

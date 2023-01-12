@@ -1,0 +1,21 @@
+installazioni 
+
+pip install Flask
+pip install -U flask-cors
+pip install python-dotenv
+pip install pandas
+pip install pymssql
+
+
+
+
+
+
+from flask import Flask, request
+app = Flask(__name__)
+
+@app.route('/', methods=['POST'])
+def receive_data():
+  data = request.get_json()
+  process data
+  return "Data received"

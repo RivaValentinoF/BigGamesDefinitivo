@@ -1,5 +1,5 @@
 npm i -g @angular/cli
-
+ng serve --disable-host-check
 
 Crea il progetto 
 ng new BigGames
