@@ -8,6 +8,7 @@ import { GiochishopComponent } from './giochishop/giochishop.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RicercashopComponent } from './ricercashop/ricercashop.component';
 import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.component';
+import { HomeFrontComponent } from './home-front/home-front.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.compone
     GiochishopComponent,
     RicercashopComponent,
     AggiuntagiochiComponent,
+    HomeFrontComponent,
  
   ],
   imports: [

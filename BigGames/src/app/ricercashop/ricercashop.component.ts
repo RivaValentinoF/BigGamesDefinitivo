@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RicercashopComponent {
     Shops: any = [];
     loading!: Boolean;
-    url: string = "https://3000-nabb0-biggamesdefiniti-batwv7j33p3.ws-eu82.gitpod.io/negozio";
+    url: string = "https://3000-nabb0-biggamesdefiniti-k5s7kle9jxn.ws-eu82.gitpod.io/negozio";
 
 
     constructor(public http: HttpClient) {
