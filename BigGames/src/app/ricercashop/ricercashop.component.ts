@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,15 +9,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ricercashop.component.css']
 })
 export class RicercashopComponent {
-    Shops: any = [];
-    loading!: Boolean;
-    url: string = "https://3000-nabb0-biggamesdefiniti-k5s7kle9jxn.ws-eu82.gitpod.io/negozio";
+  Shops: any = [];
+  loading!: Boolean;
+  url: string = "https://3000-nabb0-biggamesdefiniti-vh6aqwajw1x.ws-eu82.gitpod.io/negozio";
 
-
-    constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private router: Router) {
     this.get(this.url);
-}
-
+  }
 
   get(url: string): void {
     this.loading = true;
@@ -37,5 +36,9 @@ export class RicercashopComponent {
 
   onKey(value: string) {
     this.get(this.url + "?store_name=" + value);
+  }
+
+  navigate(id: string) {
+    this.router.navigate([`/giochishop/${id}`]);
   }
 }

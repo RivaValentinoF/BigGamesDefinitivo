@@ -3,11 +3,6 @@ import pandas as pd
 import pymssql as sql
 from flask_cors import CORS
 
-from os import getenv
-from dotenv import load_dotenv
-load_dotenv()
-
-
 conn = sql.connect(server='213.140.22.237\SQLEXPRESS',
                            user='tolentino.mirko', password='xxx123##', database='tolentino.mirko')
 
@@ -52,13 +47,20 @@ def getlocation_pandas(id_shop):
 
 
         return jsonify(res)
-@app.route('/aggiuntagiochi')
+
+        
+@app.route('/aggiuntagiochi', methods=['POST'])
 def addgames_pandas():
-    
-   
+    if request.method == 'POST':
+        nome_gioco = request.args.get('gameName')
+        studio = request.args.get('nameStudio')
+        anno_uscita = request.args.get('gamePublish')
+        prezzo = request.args.get('price')
+        quantita = request.args.get('quantity')
 
+        #query
 
-    return jsonify(res)
+        return jsonify(request.args)
 
 @app.route('/home')
 def Home_Front_hand():

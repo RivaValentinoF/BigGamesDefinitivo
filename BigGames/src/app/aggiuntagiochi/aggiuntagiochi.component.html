@@ -1,33 +1,34 @@
 <h3>Dati gioco:</h3>
 
-<form #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
+<form [formGroup]="addGameForm" (ngSubmit)="onProductCreate()">
     <div class="col-md-10">
-      <label for="nome_gioco">Nome Gioco</label>
-      <input type="text" class="form-control" id="nome_gioco"  placeholder="Inserire nome del gioco" name="nome_gioco" ngModule>
-  </div>
-  <div class="col-md-10">
-      <label for="nome_studio">Nome Studio</label>
-      <input type="text" class="form-control" id="nome_studio"  placeholder="Inserire nome dello studio produttore del gioco" name="nome_studio" ngModule>
-  </div>
-  <div class="col-md-10">
-    <label for="data_uscita">data uscita</label>
-    <input type="text" class="form-control" id="data_uscita"  placeholder="Inserire l'anno d'uscita del gioco" name="data_uscita" ngModule>
-  </div>
-  <div class="col-md-10">
-      <label for="prezzo">Prezzo</label>
-      <input type="text" class="form-control" id="prezzo" placeholder="Prezzo del gioco a copia singola" name="prezzo" ngModule>
-  </div>
-  <div class="col-md-10">
-      <label for="quantita">Quantita</label>
-      <input type="text" class="form-control" id="quantita" placeholder=" Quantita del gioco in negozio" name="quantita" ngModule>
-  </div><br>
+        <label for="nome_gioco">Nome Gioco</label>
+        <input type="text" class="form-control" id="nome_gioco" placeholder="Inserire nome del gioco" name="nome_gioco"
+            formControlName="gameName">
+    </div>
+    <div class="col-md-10">
+        <label for="nome_studio">Nome Studio</label>
+        <input type="text" class="form-control" id="nome_studio"
+            placeholder="Inserire nome dello studio produttore del gioco" name="nome_studio"
+            formControlName="nameStudio">
+    </div>
+    <div class="col-md-10">
+        <label for="data_uscita">data uscita</label>
+        <input type="text" class="form-control" id="data_uscita" placeholder="Inserire l'anno d'uscita del gioco"
+            name="data_uscita" formControlName="gamePublish">
+    </div>
+    <div class="col-md-10">
+        <label for="prezzo">Prezzo</label>
+        <input type="text" class="form-control" id="prezzo" placeholder="Prezzo del gioco a copia singola" name="prezzo"
+            formControlName="price">
+    </div>
+    <div class="col-md-10">
+        <label for="quantita">Quantita</label>
+        <input type="text" class="form-control" id="quantita" placeholder=" Quantita del gioco in negozio"
+            name="quantita" formControlName="quantity">
+    </div><br>
 
 
-  <a [routerLink]="['/']"><button type="submit" class="btn btn-primary">Submit</button> </a>
+    <button type="submit" class="btn btn-primary" [disabled]="!addGameForm.valid">Submit</button>
 
-  </form>  
-
- 
- 
-  
-
+</form>

@@ -1,47 +1,30 @@
+<div class="bg-dark ">
+  <table *ngIf="(GiochiLoc?.length >= 1)" class="table table-dark">
 
-<!DOCTYPE html>
-<html lang="en">
-<head >
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-
-<body class="bg-dark " >
-  
-  
-    <table *ngIf="(GiochiLoc?.length >= 1)" class="table table-dark" >
-     
-        <thead class="text-success">
-          <th>Citta</th>
-          <th>Id_shop</th>
-          <th>Indirizzo_shops</th>
-          <th>Nome</th>
-          <th>Prezzo</th>
-          <th>Quantita</th>
-          
-          
-          
-        </thead>
-        <tbody class="text-success">
-          <tr *ngFor="let s of GiochiLoc">
-           
-            <td>{{s.citta}}</td>
-            <td>{{ s.id_shop }}</td>
-            <td>{{ s.indirizzo_shops }}</td>
-            <td>{{ s.nome}}</td>
-            <td>{{ s.prezzo}}</td>
-            <td>{{ s.quantita}}</td>
-           
-           
-          </tr>
-      </tbody>
-    </table>
-    <a routerLink="/aggiuntagiochi"><input class="btn btn-success" type="button" value="Aggiungi"  ></a>
-    <router-outlet></router-outlet>
+    <thead class="text-success">
+      <th>Citta</th>
+      <th>Id_shop</th>
+      <th>Indirizzo_shops</th>
+      <th>Nome</th>
+      <th>Prezzo</th>
+      <th>Quantita</th>
 
 
-</body>
-</html>
+
+    </thead>
+    <tbody class="text-success">
+      <tr *ngFor="let s of GiochiLoc">
+
+        <td>{{s.citta}}</td>
+        <td>{{ s.id_shop }}</td>
+        <td>{{ s.indirizzo_shops }}</td>
+        <td>{{ s.nome}}</td>
+        <td>{{ s.prezzo}}</td>
+        <td>{{ s.quantita}}</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/aggiuntagiochi"><input class="btn btn-success" type="button" value="Aggiungi"></a>
+</div>
