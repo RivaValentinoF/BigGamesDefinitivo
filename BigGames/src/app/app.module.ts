@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +12,7 @@ import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.compone
 import { HomeFrontComponent } from './home-front/home-front.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +20,14 @@ import { HomeFrontComponent } from './home-front/home-front.component';
     RicercashopComponent,
     AggiuntagiochiComponent,
     HomeFrontComponent,
- 
+    FormsModule
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
