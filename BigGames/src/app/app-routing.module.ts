@@ -8,10 +8,10 @@ import { HomeFrontComponent } from './home-front/home-front.component';
 import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.component';
 
 const routes: Routes = [
-  { path: '', component:  RicercashopComponent},
+  { path: 'negozio', component:  RicercashopComponent},
   { path: 'giochishop/:id', component:  GiochishopComponent },
   { path: 'aggiuntagiochi', component:  AggiuntagiochiComponent },
-  { path: 'home', component:  HomeFrontComponent },
+  { path: '', component:  HomeFrontComponent },
   { path: 'aggiuntanegozi', component: AggiuntanegoziComponent  }
 ];
 

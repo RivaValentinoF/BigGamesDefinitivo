@@ -38,15 +38,18 @@ def getlocation_pandas(id_shop):
 @app.route('/aggiuntagiochi', methods=['POST'])
 def addgames_pandas():
     if request.method == 'POST':
+  
         nome_gioco = request.args.get('gameName')
         studio = request.args.get('nameStudio')
         anno_uscita = request.args.get('gamePublish')
         prezzo = request.args.get('price')
         quantita = request.args.get('quantity')
+        
 
         #query
-        aggiunta_tab_giochi=f'insert into Games({nome_gioco},{studio},{prezzo},{anno_uscita}'
+        aggiunta_tab_giochi=f'insert into Games({nome_gioco},{studio},{prezzo},{anno_uscita})'
         aggiunta_tab_loc=f'insert into Location({id_neg}, ,{quantita})'
+        
         df2 = pd.read_sql(aggiunta_tab_giochi,conn)
         df3 = pd.read_sql(aggiunta_tab_loc,conn)
 
@@ -54,8 +57,15 @@ def addgames_pandas():
 
 @app.route('/aggiuntanegozi', methods=['POST'])
 def addshops_pandas():
-    
-        return jsonify(request.args)
+        if request.method == 'POST':
+            num_tel = request.args.get('phone')
+            via = request.args.get('via')
+            citta = request.args.get('city')
+
+            #query
+            aggiunta_tab_negozio = f'insert into Shops({num_tel},{via},{citta})'
+            df4 = pd.read_sql(aggiunta_tab_negozio,conn)
+            return jsonify(request.args)
 
 
 #_______________________________________________________________________________________________________________________________________

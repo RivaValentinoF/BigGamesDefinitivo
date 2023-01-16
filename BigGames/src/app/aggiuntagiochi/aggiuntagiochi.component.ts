@@ -25,7 +25,9 @@ export class AggiuntagiochiComponent implements OnInit {
       nameStudio: ["", [Validators.required]],
       gamePublish: ["", [Validators.required]],
       price: ["", [Validators.required]],
-      quantity: ["", [Validators.required]]
+      quantity: ["", [Validators.required]],
+      console: ["", [Validators.required]],
+      genre: ["", [Validators.required]]
     });
   }
 
@@ -37,11 +39,14 @@ export class AggiuntagiochiComponent implements OnInit {
       nameStudio: this.addGameForm.value.nameStudio,
       gamePublish: this.addGameForm.value.gamePublish,
       price: this.addGameForm.value.price,
-      quantity: this.addGameForm.value.quantity
+      quantity: this.addGameForm.value.quantity,
+      console: this.addGameForm.value.console,
+      genre: this.addGameForm.value.genre
+      
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-vh6aqwajw1x.ws-eu82.gitpod.io/aggiuntagiochi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-ojhh7et2pqv.ws-eu82.gitpod.io/aggiuntagiochi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -51,9 +56,5 @@ export class AggiuntagiochiComponent implements OnInit {
       console.log(data);
     })
   }
-
-
-
-
 
 }

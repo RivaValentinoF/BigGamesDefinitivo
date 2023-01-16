@@ -6,27 +6,45 @@
         <input type="text" class="form-control" id="nome_gioco" placeholder="Inserire nome del gioco" name="nome_gioco"
             formControlName="gameName">
     </div>
+
     <div class="col-md-10">
         <label for="nome_studio">Nome Studio</label>
         <input type="text" class="form-control" id="nome_studio"
             placeholder="Inserire nome dello studio produttore del gioco" name="nome_studio"
             formControlName="nameStudio">
     </div>
+
     <div class="col-md-10">
         <label for="data_uscita">data uscita</label>
         <input type="text" class="form-control" id="data_uscita" placeholder="Inserire l'anno d'uscita del gioco"
             name="data_uscita" formControlName="gamePublish">
     </div>
+
     <div class="col-md-10">
         <label for="prezzo">Prezzo</label>
-        <input type="text" class="form-control" id="prezzo" placeholder="Prezzo del gioco a copia singola" name="prezzo"
+        <input type="text" class="form-control" id="prezzo" placeholder="Inserire il prezzo del gioco a copia singola" name="prezzo"
             formControlName="price">
     </div>
+
     <div class="col-md-10">
         <label for="quantita">Quantita</label>
-        <input type="text" class="form-control" id="quantita" placeholder=" Quantita del gioco in negozio"
+        <input type="text" class="form-control" id="quantita" placeholder="Inserire la quantita del gioco in negozio"
             name="quantita" formControlName="quantity">
-    </div><br>
+    </div>
+
+    <div class="col-md-10">
+        <label for="console">Console</label>
+        <input type="text" class="form-control" id="console" placeholder="Inserire la console del gioco  "
+            name="console" formControlName="console">
+    </div>
+
+    <div class="col-md-10">
+        <label for="genere">Genere</label>
+        <input type="text" class="form-control" id="genere" placeholder="Inserire il genere del gioco "
+            name="genere" formControlName="genre">
+    </div>
+
+    <br>
 
 
     <button type="submit" class="btn btn-primary" [disabled]="!addGameForm.valid">Submit</button>
