@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RicercashopComponent } from './ricercashop/ricercashop.component';
 import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.component';
 import { HomeFrontComponent } from './home-front/home-front.component';
+import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.component';
 
 
 
@@ -20,6 +21,7 @@ import { HomeFrontComponent } from './home-front/home-front.component';
     RicercashopComponent,
     AggiuntagiochiComponent,
     HomeFrontComponent,
+    AggiuntanegoziComponent,
   ],
   imports: [
     BrowserModule,

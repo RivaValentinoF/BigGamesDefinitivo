@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RicercashopComponent {
   Shops: any = [];
   loading!: Boolean;
-  url: string = "https://3000-nabb0-biggamesdefiniti-vh6aqwajw1x.ws-eu82.gitpod.io/negozio";
+  url: string = "https://3000-nabb0-biggamesdefiniti-rbpjufffouz.ws-eu82.gitpod.io/negozio";
 
   constructor(public http: HttpClient, private router: Router) {
     this.get(this.url);
@@ -26,13 +26,7 @@ export class RicercashopComponent {
     });
   }
 
-  // previousSearch: string = '';
-  // onKey(value: string) {
-  //   if (value != this.previousSearch) {
-  //     this.get(this.url + "?store_name=" + value);
-  //     this.previousSearch = value;
-  //   }
-  // }
+  
 
   onKey(value: string) {
     this.get(this.url + "?store_name=" + value);

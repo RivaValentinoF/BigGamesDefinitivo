@@ -9,6 +9,8 @@ conn = sql.connect(server='213.140.22.237\SQLEXPRESS',
 app = Flask(__name__)
 CORS(app)
 
+#Back-End
+
 @app.route('/negozio')
 def getshop_pandas():
     data = request.args.get("store_name")
@@ -21,33 +23,17 @@ def getshop_pandas():
 
     return jsonify(res)
 
-@app.route('/giochishop/<id_shop>',methods=['GET','POST'])
+@app.route('/giochishop/<id_shop>',methods=['GET'])
 def getlocation_pandas(id_shop):
     global id_neg
     id_neg = id_shop
-    if request.method == 'GET':
-        visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
-        df1 = pd.read_sql(visualizzaloc,conn)
-        res = list(df1.fillna("NaN").to_dict("index").values())
-        return jsonify(res)
-    elif request.method == 'POST':
+    
+    visualizzaloc = f'Select * from GiochiLoc Where id_shop = {id_shop}'
+    df1 = pd.read_sql(visualizzaloc,conn)
+    res = list(df1.fillna("NaN").to_dict("index").values())
+    return jsonify(res)
 
-        nome_gioco = request.form.get('nome_gioco')
-        studio = request.form.get('nome_studio')
-        prezzo = request.form.get('prezzo')
-        anno_uscita = request.form.get('data_uscita')
-        quantita = request.form.get('quantita')
-
-        aggiunta_tab_giochi=f'insert into Games({nome_gioco},{studio},{prezzo},{anno_uscita}'
-        aggiunta_tab_loc=f'insert into Location({id_neg}, ,{quantita})'
-        df2 = pd.read_sql(aggiunta_tab_giochi,conn)
-        df3 = pd.read_sql(aggiunta_tab_loc,conn)
-        print(nome_gioco)
-
-
-
-        return jsonify(res)
-
+  
         
 @app.route('/aggiuntagiochi', methods=['POST'])
 def addgames_pandas():
@@ -59,8 +45,22 @@ def addgames_pandas():
         quantita = request.args.get('quantity')
 
         #query
+        aggiunta_tab_giochi=f'insert into Games({nome_gioco},{studio},{prezzo},{anno_uscita}'
+        aggiunta_tab_loc=f'insert into Location({id_neg}, ,{quantita})'
+        df2 = pd.read_sql(aggiunta_tab_giochi,conn)
+        df3 = pd.read_sql(aggiunta_tab_loc,conn)
 
         return jsonify(request.args)
+
+@app.route('/aggiuntanegozi', methods=['POST'])
+def addshops_pandas():
+    
+        return jsonify(request.args)
+
+
+#_______________________________________________________________________________________________________________________________________
+
+#Front-End
 
 @app.route('/home')
 def Home_Front_hand():

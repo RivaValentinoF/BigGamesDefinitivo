@@ -1,0 +1,26 @@
+<form   >
+    
+    <div class="col-md-10">
+        <label for="telefono">Telefono</label>
+        <input type="text" class="form-control" id="telefono" placeholder="Inserire il numero di telefono del negozio" name="telefono"
+            formControlName="Phone" maxlength="10">
+    </div>
+
+    <div class="col-md-10">
+        <label for="via">Via</label>
+        <input type="text" class="form-control" id="via" placeholder="Inserire la via del negozio" name="via"
+            formControlName="Via" >
+    </div>
+
+        <div class="col-md-10">
+        <label for="citta">Città</label>
+        <input type="text" class="form-control" id="citta" placeholder="Inserire la città" name="citta"
+            formControlName="City">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+</form>
+
+
+<!-- [formGroup]="addShopForm" (ngSubmit)="onShopCreate()"-->
+<!--[disabled]="!addGameForm.valid" -->
