@@ -11,6 +11,7 @@ import { RicercashopComponent } from './ricercashop/ricercashop.component';
 import { AggiuntagiochiComponent } from './aggiuntagiochi/aggiuntagiochi.component';
 import { HomeFrontComponent } from './home-front/home-front.component';
 import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.component';
+import { ContattaciComponent } from './contattaci/contattaci.component';
 
 
 
@@ -22,6 +23,7 @@ import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.compone
     AggiuntagiochiComponent,
     HomeFrontComponent,
     AggiuntanegoziComponent,
+    ContattaciComponent,
   ],
   imports: [
     BrowserModule,

@@ -46,7 +46,7 @@ export class AggiuntagiochiComponent implements OnInit {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-ojhh7et2pqv.ws-eu82.gitpod.io/aggiuntagiochi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-6fbqvkihau9.ws-eu82.gitpod.io/aggiuntagiochi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
