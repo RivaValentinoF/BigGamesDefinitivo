@@ -47,11 +47,15 @@ def addgames_pandas():
         
 
         #query
-        aggiunta_tab_giochi=f'insert into Games({nome_gioco},{studio},{prezzo},{anno_uscita})'
-        aggiunta_tab_loc=f'insert into Location({id_neg}, ,{quantita})'
+        cursor = conn.cursor(as_dict=True)
+        q = 'INSERT INTO Games (nome,studio,prezzo,anno_uscita) VALUES (%(nome_gioco)s, %(studio)s, %(prezzo)i,%(anno_uscita)d)'
+        cursor.execute(q, params={'nome_gioco': nome_gioco, 'studio': studio, 'prezzo': prezzo,'anno_uscita': anno_uscita})
+        conn.commit()
         
-        df2 = pd.read_sql(aggiunta_tab_giochi,conn)
-        df3 = pd.read_sql(aggiunta_tab_loc,conn)
+        cursor = conn.cursor(as_dict=True)
+        q = 'INSERT INTO Location (id_shop,quantita) VALUES (%(id_neg)s, %(quantita)s)'
+        cursor.execute(q, params={'id_neg': id_neg, 'quantita': quantita})
+        conn.commit()
 
         return jsonify(request.args)
 
@@ -63,7 +67,14 @@ def addgames_pandas():
 
             res = list(selezione_generi.fillna("NaN").to_dict("index").values())
 
-            return jsonify(res)
+
+            tutte_console = 'select console,software_house from console'
+
+            selezione_console = pd.read_sql(tutte_console,conn)
+
+            res2 = list(selezione_console.fillna("NaN").to_dict("index").values())
+
+            return jsonify(res,res2)
 
 
  
@@ -79,9 +90,13 @@ def addshops_pandas():
             citta = request.args.get('city')
 
             #query
-            aggiunta_tab_negozio = f'insert into Shops({num_tel},{via},{citta})'
-            df4 = pd.read_sql(aggiunta_tab_negozio,conn)
+            cursor = conn.cursor(as_dict=True)
+            q = 'INSERT INTO Shops (telefono_shops,indirizzo_shops,citta) VALUES (%(telefono)s, %(via)s, %(citta)s)'
+            cursor.execute(q, params={'telefono': num_tel, 'via': via, 'citta': citta})
+            conn.commit()
             return jsonify(request.args)
+
+
 
         
 
