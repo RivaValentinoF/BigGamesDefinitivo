@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -12,10 +13,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class AggiuntagiochiComponent implements OnInit {
   addGameForm!: FormGroup;
-
+  Generi! : any;
+  url : string = 'https://3000-nabb0-biggamesdefiniti-1tm2k9ksvvi.ws-eu82.gitpod.io/aggiuntagiochi'
+  ob!:Observable<object>;
+  
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    
+    this.ob = this.http.get(this.url);
+    this.ob.subscribe(data => {
+      this.Generi = data;
+    });
+
+    
+    
+    
+    
+    
     // Crea la form
     /**!
      * Per collegare un 'input' HTLM alla form di Angular bisogna aggiungere 'formControlName' come  proprieta' dell'input e come valore il nome scielto in Angular
@@ -46,7 +61,7 @@ export class AggiuntagiochiComponent implements OnInit {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-6fbqvkihau9.ws-eu82.gitpod.io/aggiuntagiochi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-1tm2k9ksvvi.ws-eu82.gitpod.io/aggiuntagiochi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

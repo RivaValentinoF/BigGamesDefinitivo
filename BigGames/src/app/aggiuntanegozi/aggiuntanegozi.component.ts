@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-aggiuntanegozi',
@@ -8,11 +9,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./aggiuntanegozi.component.css']
 })
 export class AggiuntanegoziComponent {
+  
   addShopForm!: FormGroup;
-
+  
+  
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
+    
+
     
     this.addShopForm = this.fb.group({
       phone: ["", [Validators.required]],
@@ -32,7 +38,7 @@ export class AggiuntanegoziComponent {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-6fbqvkihau9.ws-eu82.gitpod.io/aggiuntanegozi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-1tm2k9ksvvi.ws-eu82.gitpod.io/aggiuntanegozi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

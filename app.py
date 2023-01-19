@@ -35,7 +35,7 @@ def getlocation_pandas(id_shop):
 
   
         
-@app.route('/aggiuntagiochi', methods=['POST'])
+@app.route('/aggiuntagiochi', methods=['POST','GET'])
 def addgames_pandas():
     if request.method == 'POST':
   
@@ -55,6 +55,22 @@ def addgames_pandas():
 
         return jsonify(request.args)
 
+    elif request.method == 'GET':
+           
+            tutti_generi = 'select genres from Genres'
+
+            selezione_generi = pd.read_sql(tutti_generi,conn)
+
+            res = list(selezione_generi.fillna("NaN").to_dict("index").values())
+
+            return jsonify(res)
+
+
+ 
+
+
+
+
 @app.route('/aggiuntanegozi', methods=['POST'])
 def addshops_pandas():
         if request.method == 'POST':
@@ -67,6 +83,7 @@ def addshops_pandas():
             df4 = pd.read_sql(aggiunta_tab_negozio,conn)
             return jsonify(request.args)
 
+        
 
 #_______________________________________________________________________________________________________________________________________
 
