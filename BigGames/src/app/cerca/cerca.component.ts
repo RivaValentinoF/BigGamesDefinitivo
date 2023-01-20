@@ -42,4 +42,4 @@ export class CercaComponent {
 
 
 
-// riadattare il codice 
+//<!-- funziona-->

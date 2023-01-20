@@ -36,3 +36,4 @@ export class RicercashopComponent {
     this.router.navigate([`/giochishop/${id}`]);
   }
 }
+//<!-- funziona-->

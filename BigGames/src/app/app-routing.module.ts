@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: '', component:  HomeFrontComponent },
   { path: 'aggiuntanegozi', component: AggiuntanegoziComponent  },
   { path: 'contattaci', component: ContattaciComponent   },
-  { path: 'Registrazione', component: RegistrazioneComponent   },
+  { path: 'registrazione', component: RegistrazioneComponent   },
   { path: 'login', component: LoginComponent   },
   { path: 'cerca', component: CercaComponent   }
 ];

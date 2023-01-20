@@ -121,6 +121,24 @@ def viz_tutti():
     res = list(dfcerca.fillna("NaN").to_dict("index").values())
     return jsonify(res)
 #funziona
+@app.route('/registrazione', methods=['POST'])
+def addregistazione():
+        if request.method == 'POST':
+            nome = request.args.get('nome')
+            cognome = request.args.get('cognome')
+            telefono = request.args.get('telefono')
+            email = request.args.get('email')
+            password = request.args.get('password')
+            via = request.args.get('via')
+            città = request.args.get('città')
+            zip = request.args.get('zip')
+            
 
+            #query
+            cursor = conn.cursor(as_dict=True)
+            q = 'INSERT INTO buyer (nome,cognome,telefono,email,indirizzo,Password,città,codice_postale) VALUES (%(nome)s, %(cognome)s, %(telefono)s,%(email)s, %(indirizzo)s, %(Password)s,%(città)s, %(codice_postale)s)'
+            cursor.execute(q, params={'nome': nome, 'cognome': cognome, 'telefono': telefono, 'email': email,'password': password,'via': via,'città': città,'codice_postale': zip})
+            conn.commit()
+            return jsonify(request.args)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)
