@@ -114,13 +114,13 @@ def Home_Front_hand():
 
 @app.route('/cerca',methods=['GET'])
 def viz_tutti():
-   
+    data = request.args.get("nome")
     
-    visualizzacerca = f'Select * from GiochiLoc'
-    dfcerca = pd.read_sql(visualizzacerca,conn)
+    visualizzacerca = f'SELECT * FROM GiochiLoc' + (' WHERE nome like %(data)s' if data != None and data != '' else "")
+    dfcerca = pd.read_sql(visualizzacerca,conn, params={"data": f'%{data}%'})
     res = list(dfcerca.fillna("NaN").to_dict("index").values())
     return jsonify(res)
-# qua e giusto cerca tutti i giochi ripetendoli ovviamente quindi ce un problema nel ts di la 
+#funziona
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)

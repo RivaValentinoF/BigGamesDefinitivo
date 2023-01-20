@@ -1,5 +1,9 @@
-<!--<div class="bg-dark ">
-    <table *ngIf="(GiochiLoc?.length >= 1)" class="table table-dark">
+<div class="bg-dark ">
+   <div class="container-fluid">
+      <input #box placeholder="Inserisci il nome del gioco" (keydown)="onKey(box.value)" class="form-control mt-3 mb-3">
+      <p *ngIf="loading">LOADING...</p>
+    
+      <table *ngIf="(GiochiLoc?.length >= 1)" class="table table-dark">
 
         <thead class="text-success">
 
@@ -29,13 +33,15 @@
             </tr>
         </tbody>
     </table>
+    <div class="alert alert-danger" *ngIf="GiochiLoc.length < 1">Errore negozio non trovato</div>
+  </div>
 
 </div>
 
 
 
 
-<!-- filtra per il numero del negozio qua non dovrebbe farlo -->
+<!-- filtra per il numero del negozio qua non dovrebbe farlo 
 
 
 
@@ -71,4 +77,4 @@
       <div class="alert alert-danger" *ngIf="Shops.length < 1">Gioco non disponibile</div>
     </div>
   </div>
-  
+-->
