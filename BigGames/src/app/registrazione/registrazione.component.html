@@ -1,51 +1,66 @@
-<form>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="Nome_Buyer">Nome</label>
-            <input type="text" class="form-control" id="Nome_Buyer" placeholder="Nome" formControlName="nome">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="Cognome_Buyer">Cognome</label>
-                <input type="text" class="form-control" id="Cognome_Buyer" placeholder="Cognome"
-                    formControlName="cognome">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="telefono">telefono</label>
-                        <input type="text" class="form-control" id="telefono" placeholder="telefono"
-                            formControlName="telefono">
+
+
+<form [formGroup]="addUserForm" (ngSubmit)="onUserCreate()">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="Nome_Buyer">Nome</label>
+                        <input type="text" class="form-control" id="Nome_Buyer" placeholder="Nome" formControlName="nome">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmai">Email</label>
-                        <input type="text" class="form-control" id="inputEmai" placeholder="Email"
-                            formControlName="email">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="Cognome_Buyer">Cognome</label>
+                        <input type="text" class="form-control" id="Cognome_Buyer" placeholder="Cognome"
+                        formControlName="cognome">
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
-                            formControlName="password">
+
+                 <div class="form-row">
+                        <div class="form-group col-md-6">
+                         <label for="telefono">telefono</label>
+                            <input type="text" class="form-control" id="telefono" placeholder="Telefono"
+                               formControlName="telefono">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Indirizzo</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Via Ornato ..."
-                        formControlName="via">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">Città</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Milano"
-                            formControlName="citta">
+
+                    <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="inputEmai">Email</label>
+                            <input type="text" class="form-control" id="inputEmai" placeholder="Email"
+                                formControlName="email">
+                        </div>
                     </div>
+                
+                 <div class="form-row"></div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword">Password</label>
+                         <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                                formControlName="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Indirizzo</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Via Ornato ..."
+                          formControlName="via">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Città</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Milano"
+                              formControlName="citta">
+                        </div>
+                    </div>  
 
                     <div class="form-group col-md-2">
                         <label for="inputZip">Codice Postale</label>
-                        <input type="text" class="form-control" id="inputZip" placeholder="20162" formControlName="zip">
+                        <input type="text" class="form-control" id="inputCap" placeholder="20162" formControlName="cap" maxlength="5">
                     </div>
-                </div>
+                    
+                <br>
 
-                <button type="submit" class="btn btn-primary" [disabled]="!addRegistrazione.valid">registrati</button>
-
+                <button type="submit" class="btn btn-primary" [disabled]="!addUserForm.valid">Registrati</button>
+</form>
               <!-- e presente u bug o qualcosa riguardo il bottone del invio dei dati cmq e presente anche un errore nel codice  -->

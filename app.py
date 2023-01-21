@@ -131,7 +131,7 @@ def addregistazione():
             password = request.args.get('password')
             via = request.args.get('via')
             città = request.args.get('città')
-            zip = request.args.get('zip')
+            cap = request.args.get('cap')
             
 
             #query

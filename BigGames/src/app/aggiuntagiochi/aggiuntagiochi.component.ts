@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class AggiuntagiochiComponent implements OnInit {
   addGameForm!: FormGroup;
   Generi! : any;
-  url : string = 'https://3000-nabb0-biggamesdefiniti-9svr7htmfu1.ws-eu83.gitpod.io/aggiuntagiochi'
+  url : string = 'https://3000-nabb0-biggamesdefiniti-r8hta9a99az.ws-eu83.gitpod.io/aggiuntagiochi'
   
   ob!:Observable<object>;
   

@@ -18,8 +18,6 @@ export class AggiuntanegoziComponent {
   ngOnInit(): void {
 
     
-
-    
     this.addShopForm = this.fb.group({
       phone: ["", [Validators.required]],
       via: ["", [Validators.required]],
@@ -38,7 +36,7 @@ export class AggiuntanegoziComponent {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-9svr7htmfu1.ws-eu83.gitpod.io/aggiuntanegozi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-r8hta9a99az.ws-eu83.gitpod.io/aggiuntanegozi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

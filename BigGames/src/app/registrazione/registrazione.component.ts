@@ -9,17 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrazioneComponent {
 
-  addRegistrazione!: FormGroup;
+  addUserForm!: FormGroup;
 
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
-    
-
-    
-    this.addRegistrazione = this.fb.group({
+    this.addUserForm = this.fb.group({
       nome: ["", [Validators.required]],
       cognome: ["", [Validators.required]],
       telefono: ["", [Validators.required]],
@@ -27,29 +24,29 @@ export class RegistrazioneComponent {
       password: ["", [Validators.required]],
       via: ["", [Validators.required]],
       citta: ["", [Validators.required]],
-      zip: ["", [Validators.required]]
+      cap: ["", [Validators.required]]
     });
   }
 
-  onShopCreate() {
-    // Crea l'oggetto che in seguito va inserito nell'intestazione della richiesta
+  onUserCreate() {
+    
     let body: HttpParams = new HttpParams();
     body = body.appendAll({
-      nome: this.addRegistrazione.value.nome,
-      cognome: this.addRegistrazione.value.cognome,
-      telefono: this.addRegistrazione.value.telefono,
-      email: this.addRegistrazione.value.email,
-      password: this.addRegistrazione.value.password,
-      via: this.addRegistrazione.value.via,
-      citta: this.addRegistrazione.value.citta,
-      zip: this.addRegistrazione.value.zip
+      nome: this.addUserForm.value.nome,
+      cognome: this.addUserForm.value.cognome,
+      telefono: this.addUserForm.value.telefono,
+      email: this.addUserForm.value.email,
+      password: this.addUserForm.value.password,
+      via: this.addUserForm.value.via,
+      citta: this.addUserForm.value.citta,
+      cap: this.addUserForm.value.cap
      
       
       
     })
 
-    // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-9svr7htmfu1.ws-eu83.gitpod.io/registrazione", '', {
+    
+    this.http.post("https://3000-nabb0-biggamesdefiniti-r8hta9a99az.ws-eu83.gitpod.io/registrazione", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
