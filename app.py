@@ -37,19 +37,24 @@ def getlocation_pandas(id_shop):
         
 @app.route('/aggiuntagiochi', methods=['POST','GET'])
 def addgames_pandas():
+    #! Errore
+    # (8115, b'Arithmetic overflow error converting nvarchar to data type numeric.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+    
     if request.method == 'POST':
-  
+        global id_neg
+
         nome_gioco = request.args.get('gameName')
         studio = request.args.get('nameStudio')
         anno_uscita = request.args.get('gamePublish')
         prezzo = request.args.get('price')
         quantita = request.args.get('quantity')
-        
 
+        print(request.args, "-".join(anno_uscita.split('-')[::-1]))
+        
         #query
         cursor = conn.cursor(as_dict=True)
-        q = 'INSERT INTO Games (nome,studio,prezzo,anno_uscita) VALUES (%(nome_gioco)s, %(studio)s, %(prezzo)i,%(anno_uscita)d)'
-        cursor.execute(q, params={'nome_gioco': nome_gioco, 'studio': studio, 'prezzo': prezzo,'anno_uscita': anno_uscita})
+        q = 'INSERT INTO Games (nome, studio, prezzo, anno_uscita) VALUES (%(nome_gioco)s, %(studio)s, %(prezzo)s, %(yean)s)'
+        cursor.execute(q, params={'nome_gioco': nome_gioco, 'studio': studio, 'prezzo': prezzo,'yean': anno_uscita})
         conn.commit()
         
         cursor = conn.cursor(as_dict=True)
@@ -74,7 +79,7 @@ def addgames_pandas():
 
             res2 = list(selezione_console.fillna("NaN").to_dict("index").values())
 
-            return jsonify(res,res2)
+            return jsonify({'generi': res,'consoles': res2})
 
 
  
@@ -130,15 +135,16 @@ def addregistazione():
             email = request.args.get('email')
             password = request.args.get('password')
             via = request.args.get('via')
-            città = request.args.get('città')
-            cap = request.args.get('cap')
+            citta = request.args.get('citta')
+            zip = request.args.get('cap')
             
 
             #query
             cursor = conn.cursor(as_dict=True)
-            q = 'INSERT INTO buyer (nome,cognome,telefono,email,indirizzo,Password,città,codice_postale) VALUES (%(nome)s, %(cognome)s, %(telefono)s,%(email)s, %(indirizzo)s, %(Password)s,%(città)s, %(codice_postale)s)'
-            cursor.execute(q, params={'nome': nome, 'cognome': cognome, 'telefono': telefono, 'email': email,'password': password,'via': via,'città': città,'codice_postale': zip})
+            q = 'INSERT INTO Buyer (nome,cognome,telefono,email,indirizzo,Password,città,codice_postale) VALUES (%(nome)s, %(cognome)s, %(telefono)s,%(email)s, %(indirizzo)s, %(password)s,%(città)s, %(codice_postale)s)'
+            cursor.execute(q, params={'nome': nome, 'cognome': cognome, 'telefono': telefono, 'email': email,'password': password,'indirizzo': via,'città': citta,'codice_postale': zip})
             conn.commit()
+
             return jsonify(request.args)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)

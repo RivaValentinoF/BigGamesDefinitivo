@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Genere } from 'src/models/genere.model';
+import { Data } from 'src/models/richiestaGeneri&Console.model';
 
 
 @Component({
@@ -13,25 +15,24 @@ import { Observable } from 'rxjs';
 
 export class AggiuntagiochiComponent implements OnInit {
   addGameForm!: FormGroup;
-  Generi! : any;
-  url : string = 'https://3000-nabb0-biggamesdefiniti-r8hta9a99az.ws-eu83.gitpod.io/aggiuntagiochi'
-  
-  ob!:Observable<object>;
-  
+  Generi: Genere[] = [];
+  url: string = 'https://3000-nabb0-biggamesdefiniti-rng4h2wttq5.ws-eu83.gitpod.io/aggiuntagiochi'
+  ob!: Observable<object>;
+
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    
-    this.ob = this.http.get(this.url);
-    this.ob.subscribe(data => {
-      this.Generi = data;
+
+    this.http.get<Data>(this.url).subscribe(data => {
+      console.log(data)
+      this.Generi = data.generi;
     });
 
-    
-    
-    
-    
-    
+
+
+
+
+
     // Crea la form
     /**!
      * Per collegare un 'input' HTLM alla form di Angular bisogna aggiungere 'formControlName' come  proprieta' dell'input e come valore il nome scielto in Angular
@@ -43,7 +44,7 @@ export class AggiuntagiochiComponent implements OnInit {
       price: ["", [Validators.required]],
       quantity: ["", [Validators.required]],
       console: ["", [Validators.required]],
-      genre: ["", [Validators.required]]
+      genere: ["", [Validators.required]]
     });
   }
 
@@ -57,12 +58,12 @@ export class AggiuntagiochiComponent implements OnInit {
       price: this.addGameForm.value.price,
       quantity: this.addGameForm.value.quantity,
       console: this.addGameForm.value.console,
-      genre: this.addGameForm.value.genre
-      
+      genere: this.addGameForm.value.genere
+
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("https://3000-nabb0-biggamesdefiniti-00rq49jt7ul.ws-eu83.gitpod.io/aggiuntagiochi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-rng4h2wttq5.ws-eu83.gitpod.io/aggiuntagiochi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

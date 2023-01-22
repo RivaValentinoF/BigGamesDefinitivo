@@ -16,35 +16,45 @@
 
     <div class="col-md-10">
         <label for="data_uscita">data uscita</label>
-        <input type="text" class="form-control" id="data_uscita" placeholder="Inserire l'anno d'uscita del gioco"
+        <input type="date" class="form-control" id="data_uscita" placeholder="Inserire l'anno d'uscita del gioco"
             name="data_uscita" formControlName="gamePublish">
     </div>
 
     <div class="col-md-10">
         <label for="prezzo">Prezzo</label>
-        <input type="text" class="form-control" id="prezzo" placeholder="Inserire il prezzo del gioco a copia singola" name="prezzo"
-            formControlName="price">
+        <input type="number" class="form-control" id="prezzo" placeholder="Inserire il prezzo del gioco a copia singola"
+            name="prezzo" formControlName="price">
     </div>
 
     <div class="col-md-10">
         <label for="quantita">Quantita</label>
-        <input type="text" class="form-control" id="quantita" placeholder="Inserire la quantita del gioco in negozio"
+        <input type="number" class="form-control" id="quantita" placeholder="Inserire la quantita del gioco in negozio"
             name="quantita" formControlName="quantity">
     </div>
 
-    <br>
-    
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Seleziona Genere
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let s of Generi">
-          <a class="dropdown-item" href="#" formControlName="genre">{{s}}</a>
-          
-        </div>
-      </div>
-      
+    <div class="col-md-10">
+        <label for="console">Console</label>
+        <input type="text" class="form-control" id="console" placeholder=""
+            name="console" formControlName="console">
+    </div>
 
+    <br>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seleziona genere
+        </button>
+        <div class="dropdown-menu"> <!-- Ciclo for of da questo tag -->
+                <div class="form-check" *ngFor="let g of Generi">
+                    <!-- Attribuire al valore della checkbox l'ID del genere ed alla label il none del genere-->
+                    <input class="form-check-input" type="radio" name="genere" id="genere-{{g.genres}}" value="{{g.genres}}"
+                        formControlName="genere">
+                    <label class="form-check-label" for="genere-{{g.genres}}">{{g.genres}}</label>
+                
+            </div>
+
+        </div>
+    </div>
 
     <br>
 

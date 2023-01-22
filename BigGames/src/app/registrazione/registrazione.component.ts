@@ -40,13 +40,10 @@ export class RegistrazioneComponent {
       via: this.addUserForm.value.via,
       citta: this.addUserForm.value.citta,
       cap: this.addUserForm.value.cap
-     
-      
-      
     })
 
     
-    this.http.post("https://3000-nabb0-biggamesdefiniti-r8hta9a99az.ws-eu83.gitpod.io/registrazione", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-rng4h2wttq5.ws-eu83.gitpod.io/registrazione", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
