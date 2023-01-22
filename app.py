@@ -146,5 +146,41 @@ def addregistazione():
             conn.commit()
 
             return jsonify(request.args)
+
+@app.route('/login', methods=['POST'])
+def login():
+  # Prendo gli argomenti richiesti
+  email = request.args.get('email')
+  password = request.args.get('password')
+
+  data = {
+    "statusCode": 200,
+    "errorMessage": "",
+    "data": {}
+  }
+
+  # Controllo se nono stati passati tutti i parametri richiesti
+  if None not in [email, password]:
+    # Prendo le informazioni dell'utente
+    q = 'SELECT * FROM users WHERE email = %(e)s'
+    cursor = conn.cursor(as_dict=True)
+    cursor.execute(q, params={"e": email})
+    res = cursor.fetchall()
+
+    # Controllo se l'utente esiste
+    if len(res) < 1:
+      data["statusCode"] = 404
+      data["errorMessage"] = "No user was found with that email"
+    elif not (res[0]["password"] == password):
+      data["statusCode"] = 403
+      data["errorMessage"] = "Wrong password"
+    else:
+      data["data"] = res
+  else:
+    data['statusCode'] = 400
+    data['errorMessage'] = "No email or password provided"
+  
+  return jsonify(data)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)

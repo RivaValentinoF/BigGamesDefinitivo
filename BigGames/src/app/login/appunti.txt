@@ -1,0 +1,80 @@
+<!-- -->
+<form>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        
+      <input type="email" id="form2Example1" class="form-control" />
+      <label class="form-label" for="form2Example1">Email </label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="form2Example2" class="form-control" />
+      <label class="form-label" for="form2Example2">Password</label>
+    </div>
+  
+    
+  
+      
+  
+  
+    <!-- Submit button -->
+    <button type="button" class="btn btn-primary btn-block mb-4">log-in</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>non sei registrato? <a href="https://4200-nabb0-biggamesdefiniti-00rq49jt7ul.ws-eu83.gitpod.io/Registrazione">Registrati</a></p>
+
+      
+  
+      
+    </div>
+  </form> -->
+
+  <!-- non funziona-->
+
+
+
+  ts 
+  @Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  form!: FormGroup;
+  errorMessage!: string;
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private fb: FormBuilder,
+    private storage: StorageService
+  ) {}
+
+  ngOnInit(): void {
+    if (this.storage.getData('id') != null) this.router.navigate([''])
+
+    this.form = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required]],
+
+    });
+  }
+
+  submit() {
+    var body = new HttpParams().appendAll({
+      'email': this.form.value.email,
+      'password': this.form.value.password
+    });
+
+    this.http.post<Data>('', '', {}).subscribe(data => {
+      if (data.statusCode == 200) {
+        this.storage.saveData('id', data.data.id_buyer.toString());
+        this.router.navigate(['']); // Dashboard utente
+      } else {
+        this.errorMessage = data.errorMessage
+      }
+    })
+  }
+}

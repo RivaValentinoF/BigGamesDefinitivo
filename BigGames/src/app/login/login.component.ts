@@ -1,9 +1,9 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Data } from 'src/models/loginData.model';
-import { StorageService } from '../services/storage.service';
+import { ManagerService } from 'src/services/manager.service';
 
 @Component({
   selector: 'app-login',
@@ -13,35 +13,53 @@ import { StorageService } from '../services/storage.service';
 export class LoginComponent implements OnInit {
   form!: FormGroup;
   errorMessage!: string;
+  statusCode!: number;
 
   constructor(
+    private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private fb: FormBuilder,
-    private storage: StorageService
-  ) {}
+    private manager: ManagerService
+  ) { }
 
   ngOnInit(): void {
-    if (this.storage.getData('id') != null) this.router.navigate([''])
+    // Controllo se l'utente ha gia' eseguito il login
+    if (this.manager.getUser.id != -1) this.router.navigate(['']);
 
+    // Inizializzo la form
     this.form = this.fb.group({
-
-    });
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required]],
+    })
   }
 
   submit() {
-    var body = new HttpParams().appendAll({
-
+    // Creo l'oggetto che verra' inviaro al server Flask con le credenziali delll'utente
+    let body: HttpParams = new HttpParams().appendAll({
+      'email': this.form.value.email,
+      'password': this.form.value.password
     });
 
-    this.http.post<Data>('', '', {}).subscribe(data => {
+    // Eseguo la richiesta in POST
+    this.http.post<Data>('https://3000-nabb0-biggamesdefiniti-y3zegqrg2qn.ws-eu83.gitpod.io/login', '', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      params: body,
+      responseType: "json"
+    }).subscribe(data => {
+      // Aspetto la risposta del server e comunico all'utente la risposta
       if (data.statusCode == 200) {
-        this.storage.saveData('id', data.data.id_buyer.toString());
-        this.router.navigate(['']); // Dashboard utente
+        // Invio le informazioni dell'utente alle pagine in ascolto
+        this.manager.setUser(data.data);
+
+        // Reindirizzo l'utente alla sua dashboard
+        this.router.navigate(['']);
       } else {
-        this.errorMessage = data.errorMessage
+        this.statusCode = data.statusCode;
+        this.errorMessage = data.errorMessage;
       }
-    })
+    });
   }
+
 }
-//<!-- non funziona-->

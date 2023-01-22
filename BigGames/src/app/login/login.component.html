@@ -1,34 +1,34 @@
+<div class="container py-5 vh-50">
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class=" shadow-2-strong bordered-15">
+        <div class="card-body p-5" id="card">
+         
 
-<form>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-        
-      <input type="email" id="form2Example1" class="form-control" />
-      <label class="form-label" for="form2Example1">Email </label>
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+              <div class="form-group mb-3 col-md-12 col-sm-12">
+                <label class="form-check-labe" for="userid">Email</label>
+                  <input type="email" class="form-control" formControlName="email" />
+              </div>
+
+              <div class="form-group mb-3 col-md-12 col-sm-12">
+                <label class="form-check-labe" for="password">Password</label>
+                  <input type="password" class="form-control" formControlName="password" />
+              </div>
+            </div>
+
+            <div *ngIf="this.statusCode != 200" ngClass="mt-0">
+              <p class="text-danger">{{this.errorMessage}}</p>
+            </div>
+
+            <div class="text-end">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!form.valid">Accedi</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
     </div>
-
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" />
-      <label class="form-label" for="form2Example2">Password</label>
-    </div>
-  
-    
-  
-      
-  
-  
-    <!-- Submit button -->
-    <button type="button" class="btn btn-primary btn-block mb-4">log-in</button>
-  
-    <!-- Register buttons -->
-    <div class="text-center">
-      <p>non sei registrato? <a href="https://4200-nabb0-biggamesdefiniti-00rq49jt7ul.ws-eu83.gitpod.io/Registrazione">Registrati</a></p>
-
-      
-  
-      
-    </div>
-  </form>
-
-  <!-- non funziona-->
+  </div>
+</div>
