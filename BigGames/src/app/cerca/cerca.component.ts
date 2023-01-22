@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cerca',
@@ -13,11 +15,11 @@ export class CercaComponent {
   
   GiochiLoc : any= [];
   loading!: Boolean;
-  url : string = 'https://3000-nabb0-biggamesdefiniti-y3zegqrg2qn.ws-eu83.gitpod.io/cerca'
+  url : string = 'https://3000-nabb0-biggamesdefiniti-88tjennp45y.ws-eu83.gitpod.io/cerca'
   ob!:Observable<object>;
-  router: any;
+  //router: any;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.get(this.url)
   }
   get(url: string): void {
@@ -34,6 +36,11 @@ export class CercaComponent {
   onKey(value: string) {
     this.get(this.url + "?nome=" + value);
   }
+
+  navigate(nome:string) {
+    this.router.navigate([`/infogiochi/${nome}`]);
+  }
+
 
 }
 

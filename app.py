@@ -182,5 +182,14 @@ def login():
   
   return jsonify(data)
 
+
+@app.route('/infogiochi/<nome>',methods=['GET'])
+def getinfogame_pandas(nome):
+   
+    return jsonify(res)
+
+
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)

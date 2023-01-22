@@ -8,8 +8,9 @@ import { HomeFrontComponent } from './home-front/home-front.component';
 import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.component';
 import { ContattaciComponent } from './contattaci/contattaci.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 import { CercaComponent } from './cerca/cerca.component';
+import { InfogiochiComponent } from './infogiochi/infogiochi.component';
 
 const routes: Routes = [
   { path: 'negozio', component:  RicercashopComponent},
@@ -19,8 +20,9 @@ const routes: Routes = [
   { path: 'aggiuntanegozi', component: AggiuntanegoziComponent  },
   { path: 'contattaci', component: ContattaciComponent   },
   { path: 'registrazione', component: RegistrazioneComponent   },
-  { path: 'login', component: LoginComponent   },
-  { path: 'cerca', component: CercaComponent   }
+  //{ path: 'login', component: LoginComponent   },
+  { path: 'cerca', component: CercaComponent   },
+  {path:'infogiochi/:nome',component:InfogiochiComponent}
 ];
 
 @NgModule({
