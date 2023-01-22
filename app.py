@@ -82,10 +82,6 @@ def addgames_pandas():
             return jsonify({'generi': res,'consoles': res2})
 
 
- 
-
-
-
 
 @app.route('/aggiuntanegozi', methods=['POST'])
 def addshops_pandas():
@@ -116,7 +112,6 @@ def Home_Front_hand():
     return jsonify(res)
 
 #cerca 
-
 @app.route('/cerca',methods=['GET'])
 def viz_tutti():
     data = request.args.get("nome")
@@ -125,6 +120,7 @@ def viz_tutti():
     dfcerca = pd.read_sql(visualizzacerca,conn, params={"data": f'%{data}%'})
     res = list(dfcerca.fillna("NaN").to_dict("index").values())
     return jsonify(res)
+
 #funziona
 @app.route('/registrazione', methods=['POST'])
 def addregistazione():
@@ -136,13 +132,13 @@ def addregistazione():
             password = request.args.get('password')
             via = request.args.get('via')
             citta = request.args.get('citta')
-            zip = request.args.get('cap')
+            cap = request.args.get('cap')
             
 
             #query
             cursor = conn.cursor(as_dict=True)
             q = 'INSERT INTO Buyer (nome,cognome,telefono,email,indirizzo,Password,città,codice_postale) VALUES (%(nome)s, %(cognome)s, %(telefono)s,%(email)s, %(indirizzo)s, %(password)s,%(città)s, %(codice_postale)s)'
-            cursor.execute(q, params={'nome': nome, 'cognome': cognome, 'telefono': telefono, 'email': email,'password': password,'indirizzo': via,'città': citta,'codice_postale': zip})
+            cursor.execute(q, params={'nome': nome, 'cognome': cognome, 'telefono': telefono, 'email': email,'password': password,'indirizzo': via,'città': citta,'codice_postale': cap})
             conn.commit()
 
             return jsonify(request.args)
@@ -183,9 +179,12 @@ def login():
   return jsonify(data)
 
 
-@app.route('/infogiochi/<nome>',methods=['GET'])
-def getinfogame_pandas(nome):
-   
+@app.route('/infogiochi/<nome>,<console>',methods=['GET'])
+def getinfogame_pandas(nome,console):
+
+    informazioni_giochi = f'SELECT * FROM GiochiLoc Where nome = {nome} and console = {console}' 
+    dfinfo = pd.read_sql(informazioni_giochi,conn)
+    res = list(dfinfo.fillna("NaN").to_dict("index").values())
     return jsonify(res)
 
 

@@ -22,13 +22,10 @@
         <tbody class="text-success">
             <tr *ngFor="let s of GiochiLoc">
 
-
                 <td>{{ s.nome}}</td>
                 <td>{{ s.prezzo}} Є</td> 
-
                 <td>{{ s.console}} </td>
-                <td>{{ s.genres}}</td>
-                <a (click)="navigate(s.nome)"><input class="btn btn-success" type="button" value="Info"></a>
+                <a (click)="navigate(s.nome,s.console)"><input class="btn btn-success" type="button" value="Info"></a>
 
             </tr>
         </tbody>

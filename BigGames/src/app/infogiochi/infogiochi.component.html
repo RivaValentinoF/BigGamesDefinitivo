@@ -1,1 +1,29 @@
+<table *ngIf="GiochiLoc.length >= 1" class="table table-dark">
 
+    <thead class="text-success">
+      <th>Nome</th>
+      <th>Console</th>
+      <th>Prezzo</th>
+      <th>Genere</th>
+      <th>Quantita</th>
+      <th>Città</th>
+      <th>Via</th>
+      
+
+
+    </thead>
+    <tbody class="text-success">
+      <tr *ngFor="let s of GiochiLoc">
+
+        <td>{{ s.nome }}</td>
+        <td>{{ s.console}}</td>
+        <td>{{ s.prezzo}}</td>
+        <td>{{ s.genres }}</td>
+        <td>{{ s.quantita}}</td>
+        <td>{{ s.citta }}</td>
+        <td>{{ s.indirizzo_shops }}</td>
+        
+       
+      </tr>
+    </tbody>
+  </table>

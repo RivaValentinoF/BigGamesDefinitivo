@@ -37,8 +37,8 @@ export class CercaComponent {
     this.get(this.url + "?nome=" + value);
   }
 
-  navigate(nome:string) {
-    this.router.navigate([`/infogiochi/${nome}`]);
+  navigate(nome:string,console:string) {
+    this.router.navigate([`/infogiochi/${nome},${console}`]);
   }
 
 
