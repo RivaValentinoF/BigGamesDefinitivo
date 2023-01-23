@@ -9,9 +9,5 @@ export class User {
         public Password: string = "",
         public città: string = "",
         public codice_postale: number = 0,
-
-
-
-        // Qui
     ) {}
 }

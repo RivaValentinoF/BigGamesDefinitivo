@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     });
 
     // Eseguo la richiesta in POST
-    this.http.post<Data>('https://3000-nabb0-biggamesdefiniti-66oeafsk7s6.ws-eu83.gitpod.io/login', '', {
+    this.http.post<Data>('http://192.168.1.125:3000/login', '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

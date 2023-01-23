@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Data } from 'src/models/registerData.model';
 
 @Component({
   selector: 'app-registrazione',
@@ -12,7 +14,11 @@ export class RegistrazioneComponent {
   addUserForm!: FormGroup;
 
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -20,7 +26,7 @@ export class RegistrazioneComponent {
       nome: ["", [Validators.required]],
       cognome: ["", [Validators.required]],
       telefono: ["", [Validators.required]],
-      email: ["", [Validators.required]], 
+      email: ["", [Validators.required]],
       password: ["", [Validators.required]],
       via: ["", [Validators.required]],
       citta: ["", [Validators.required]],
@@ -29,7 +35,7 @@ export class RegistrazioneComponent {
   }
 
   onUserCreate() {
-    
+
     let body: HttpParams = new HttpParams();
     body = body.appendAll({
       nome: this.addUserForm.value.nome,
@@ -42,15 +48,22 @@ export class RegistrazioneComponent {
       cap: this.addUserForm.value.cap
     })
 
-    
-    this.http.post("https://3000-nabb0-biggamesdefiniti-66oeafsk7s6.ws-eu83.gitpod.io/registrazione", '', {
+
+    this.http.post<Data>("http://192.168.1.125:3000/registrazione", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
       params: body,
       responseType: "json"
     }).subscribe(data => {
-      console.log(data);
+      console.log(data)
+
+      // Controllo se ricevo dati in risposta
+      if (data.data != null) {
+        this.router.navigate(['/login'])
+      } else {
+        alert(data.errore)
+      }
     })
   }
 }
