@@ -55,8 +55,6 @@ def addgames_pandas():
         prezzo = request.args.get('price')
         quantita = request.args.get('quantity')
 
-        print(request.args, "-".join(anno_uscita.split('-')[::-1]))
-
         # query
         cursor = conn.cursor(as_dict=True)
         q = 'INSERT INTO Games (nome, studio, prezzo, anno_uscita) VALUES (%(nome_gioco)s, %(studio)s, %(prezzo)s, %(yean)s)'
@@ -68,9 +66,8 @@ def addgames_pandas():
         cursor = conn.cursor(as_dict=True)
         q = 'select max(id_game) as ultimo_dato from Games'
         cursor.execute(q)
-        
         res = cursor.fetchall()
-
+        conn.commit()
         cursor = conn.cursor(as_dict=True)
         q = 'INSERT INTO Location (id_shop,quantita) VALUES (%(id_neg)s,%(id_game)s, %(quantita)s)'
         cursor.execute(q, params={'id_neg': id_neg, 'quantita': quantita, 'id_game': res[0]['ultimo_dato']})
