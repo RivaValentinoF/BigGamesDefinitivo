@@ -16,7 +16,7 @@ import { Data } from 'src/models/richiestaGeneri&Console.model';
 export class AggiuntagiochiComponent implements OnInit {
   addGameForm!: FormGroup;
   Generi: Genere[] = [];
-  url: string = 'http://192.168.1.125:3000/aggiuntagiochi'
+  url: string = 'https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/aggiuntagiochi'
   ob!: Observable<object>;
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }
@@ -57,7 +57,7 @@ export class AggiuntagiochiComponent implements OnInit {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("http://192.168.1.125:3000/aggiuntagiochi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/aggiuntagiochi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

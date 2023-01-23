@@ -19,7 +19,7 @@ export class InfogiochiComponent implements OnInit {
       const str = p['game'];
       const cons = str.split(",,")[0];
       const name = str.split(",,")[1];
-      this.url = `http://192.168.1.125:3000/infogiochi/${cons}/${name}`
+      this.url = `https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/infogiochi/infogiochi/${cons}/${name}`
       this.ob = this.http.get(this.url)
       this.ob.subscribe(data => {
         console.log(data);
@@ -40,7 +40,7 @@ export class InfogiochiComponent implements OnInit {
       
     })
 
-    this.http.post("https://3000-nabb0-biggamesdefiniti-z7tn19kr0a6.ws-eu83.gitpod.io/wishlist", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/wishlist", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

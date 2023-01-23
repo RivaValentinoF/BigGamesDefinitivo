@@ -49,7 +49,7 @@ export class RegistrazioneComponent {
     })
 
 
-    this.http.post<Data>("http://192.168.1.125:3000/registrazione", '', {
+    this.http.post<Data>("https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/registrazione", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

@@ -36,7 +36,7 @@ export class AggiuntanegoziComponent {
     })
 
     // Esegue la richiesta non tipizzata
-    this.http.post("http://192.168.1.125:3000/aggiuntanegozi", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/aggiuntanegozi", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
