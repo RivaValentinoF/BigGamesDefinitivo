@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class GiochishopComponent implements OnInit  {
   
   GiochiLoc! : any;
-  url : string = 'https://3000-nabb0-biggamesdefiniti-qbtdk60br1x.ws-eu83.gitpod.io/giochishop/'
+  url : string = 'https://3000-nabb0-biggamesdefiniti-66oeafsk7s6.ws-eu83.gitpod.io/giochishop/'
   ob!:Observable<object>;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {

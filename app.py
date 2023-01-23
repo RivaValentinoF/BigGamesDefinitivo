@@ -59,7 +59,7 @@ def addgames_pandas():
         cursor = conn.cursor(as_dict=True)
         q = 'INSERT INTO Games (nome, studio, prezzo, anno_uscita) VALUES (%(nome_gioco)s, %(studio)s, %(prezzo)s, %(yean)s)'
         cursor.execute(q, params={
-                       'nome_gioco': nome_gioco, 'studio': studio, 'prezzo': prezzo, 'yean': anno_uscita})
+                       'nome_gioco': nome, 'studio': studio, 'prezzo': prezzo, 'yean': anno_uscita})
         conn.commit()
         #devo ottenere l' id 
         
