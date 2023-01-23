@@ -13,15 +13,16 @@
     </thead>
     <tbody class="text-success">
       <tr *ngFor="let s of GiochiLoc">
-        <td>{{ s.id_shop }}</td>
+        <td id="s-id">{{ s.id_shop }}</td>
 
-        <td>{{ s.nome }}</td>
-        <td>{{ s.console}}</td>
-        <td>{{ s.prezzo}}</td>
-        <td>{{ s.genres }}</td>
+        <td id="nome">{{ s.nome }}</td>
+        <td id="console">{{ s.console}}</td>
+        <td id="prezzo">{{ s.prezzo}}</td>
+        <td id="genres">{{ s.genres }}</td>
     
         
        
       </tr>
     </tbody>
+    <button class="btn btn-success" type="submit" (click)="send()">Send</button>
   </table>

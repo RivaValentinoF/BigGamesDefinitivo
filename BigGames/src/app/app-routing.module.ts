@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'registrazione', component: RegistrazioneComponent   },
   { path: 'login', component: LoginComponent   },
   { path: 'cerca', component: CercaComponent   },
-  {path:'infogiochi/:console,:nome',component:InfogiochiComponent}
+  {path:'infogiochi/:game',component:InfogiochiComponent}
 ];
 
 @NgModule({
