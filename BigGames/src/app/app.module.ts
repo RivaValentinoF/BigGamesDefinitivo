@@ -13,7 +13,7 @@ import { HomeFrontComponent } from './home-front/home-front.component';
 import { AggiuntanegoziComponent } from './aggiuntanegozi/aggiuntanegozi.component';
 import { ContattaciComponent } from './contattaci/contattaci.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
-//import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { CercaComponent } from './cerca/cerca.component';
 import { InfogiochiComponent } from './infogiochi/infogiochi.component';
 
@@ -29,7 +29,7 @@ import { InfogiochiComponent } from './infogiochi/infogiochi.component';
     AggiuntanegoziComponent,
     ContattaciComponent,
     RegistrazioneComponent,
-    //LoginComponent,
+    LoginComponent,
     CercaComponent,
     InfogiochiComponent,
   ],

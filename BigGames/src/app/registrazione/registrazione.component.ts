@@ -43,7 +43,7 @@ export class RegistrazioneComponent {
     })
 
     
-    this.http.post("https://3000-nabb0-biggamesdefiniti-y3zegqrg2qn.ws-eu83.gitpod.io/registrazione", '', {
+    this.http.post("https://3000-nabb0-biggamesdefiniti-z7tn19kr0a6.ws-eu83.gitpod.io/registrazione", '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

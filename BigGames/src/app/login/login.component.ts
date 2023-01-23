@@ -1,9 +1,10 @@
-/*import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Data } from 'src/models/loginData.model';
-import { ManagerService } from 'src/services/manager.service';
+import { StorageService } from 'src/services/storage.service';
+// import { ManagerService } from 'src/services/manager.service';
 
 @Component({
   selector: 'app-login',
@@ -19,12 +20,13 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private manager: ManagerService
+    private storage: StorageService,
+    //private manager: ManagerService
   ) { }
 
   ngOnInit(): void {
     // Controllo se l'utente ha gia' eseguito il login
-    if (this.manager.getUser.id != -1) this.router.navigate(['']);
+    if (this.storage.getData('id') != null) this.router.navigate(['']);
 
     // Inizializzo la form
     this.form = this.fb.group({
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
     });
 
     // Eseguo la richiesta in POST
-    this.http.post<Data>('https://3000-nabb0-biggamesdefiniti-y3zegqrg2qn.ws-eu83.gitpod.io/login', '', {
+    this.http.post<Data>('https://3000-nabb0-biggamesdefiniti-z7tn19kr0a6.ws-eu83.gitpod.io/login', '', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -50,8 +52,11 @@ export class LoginComponent implements OnInit {
     }).subscribe(data => {
       // Aspetto la risposta del server e comunico all'utente la risposta
       if (data.statusCode == 200) {
+        this.storage.saveData('id', data.data.id_buyer.toString())
+        this.storage.saveData('email', data.data.email)
+        this.storage.saveData('nome', data.data.nome)
         // Invio le informazioni dell'utente alle pagine in ascolto
-        this.manager.setUser(data.data);
+        //this.manager.setUser(data.data);
 
         // Reindirizzo l'utente alla sua dashboard
         this.router.navigate(['']);
@@ -62,4 +67,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-} */
+}
