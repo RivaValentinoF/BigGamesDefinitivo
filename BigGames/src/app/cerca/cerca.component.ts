@@ -15,7 +15,7 @@ export class CercaComponent {
   
   GiochiLoc : any= [];
   loading!: Boolean;
-  url : string = 'https://3000-nabb0-biggamesdefiniti-z7tn19kr0a6.ws-eu83.gitpod.io/cerca'
+  url : string = 'https://3000-nabb0-biggamesdefiniti-qbtdk60br1x.ws-eu83.gitpod.io/cerca'
   ob!:Observable<object>;
   //router: any;
 

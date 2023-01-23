@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RicercashopComponent {
   Shops: any = [];
   loading!: Boolean;
-  url: string = "https://3000-nabb0-biggamesdefiniti-z7tn19kr0a6.ws-eu83.gitpod.io/negozio";
+  url: string = "https://3000-nabb0-biggamesdefiniti-qbtdk60br1x.ws-eu83.gitpod.io/negozio";
 
   constructor(public http: HttpClient, private router: Router) {
     this.get(this.url);

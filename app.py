@@ -40,11 +40,14 @@ def getlocation_pandas(id_shop):
 
 @app.route('/aggiuntagiochi', methods=['POST', 'GET'])
 def addgames_pandas():
+   
+    
+
     #! Errore
     # (8115, b'Arithmetic overflow error converting nvarchar to data type numeric.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
 
     if request.method == 'POST':
-        global id_neg
+    
 
         nome_gioco = request.args.get('gameName')
         studio = request.args.get('nameStudio')
@@ -60,10 +63,17 @@ def addgames_pandas():
         cursor.execute(q, params={
                        'nome_gioco': nome_gioco, 'studio': studio, 'prezzo': prezzo, 'yean': anno_uscita})
         conn.commit()
+        #devo ottenere l' id 
+        
+        cursor = conn.cursor(as_dict=True)
+        q = 'select max(id_game) as ultimo_dato from Games'
+        cursor.execute(q)
+        
+        res = cursor.fetchall()
 
         cursor = conn.cursor(as_dict=True)
-        q = 'INSERT INTO Location (id_shop,quantita) VALUES (%(id_neg)s, %(quantita)s)'
-        cursor.execute(q, params={'id_neg': id_neg, 'quantita': quantita})
+        q = 'INSERT INTO Location (id_shop,quantita) VALUES (%(id_neg)s,%(id_game)s, %(quantita)s)'
+        cursor.execute(q, params={'id_neg': id_neg, 'quantita': quantita, 'id_game': res[0]['ultimo_dato']})
         conn.commit()
 
         return jsonify(request.args)
