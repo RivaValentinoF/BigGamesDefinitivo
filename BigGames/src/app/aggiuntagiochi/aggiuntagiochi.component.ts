@@ -16,7 +16,7 @@ import { Data } from 'src/models/richiestaGeneri&Console.model';
 export class AggiuntagiochiComponent implements OnInit {
   addGameForm!: FormGroup;
   Generi: Genere[] = [];
-  url: string = 'https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/aggiuntagiochi'
+  url: string = 'https://3000-nabb0-biggamesdefiniti-kavl2sdnye9.ws-eu83.gitpod.io/aggiuntagiochi'
   ob!: Observable<object>;
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }

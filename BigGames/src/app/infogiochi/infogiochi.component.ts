@@ -19,7 +19,7 @@ export class InfogiochiComponent implements OnInit {
       const str = p['game'];
       const cons = str.split(",,")[0];
       const name = str.split(",,")[1];
-      this.url = `https://3000-nabb0-biggamesdefiniti-hgysb7pmp53.ws-eu83.gitpod.io/infogiochi/infogiochi/${cons}/${name}`
+      this.url = `https://3000-nabb0-biggamesdefiniti-kavl2sdnye9.ws-eu83.gitpod.io/infogiochi/${cons}/${name}`
       this.ob = this.http.get(this.url)
       this.ob.subscribe(data => {
         console.log(data);
